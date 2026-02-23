@@ -1,0 +1,22 @@
+
+
+@{
+}
+
+
+<form method="post">
+    <label asp-for="Task">Task:</label>
+    <input asp-for="Task" type="text">
+    <br>
+    <label asp-for="DueDate">Due Date:</label>
+    <input asp-for="DueDate" type="date">
+    <br>
+    <label asp-for="Quadrant">Quadrant:</label>
+    <select asp-for="Quadrant"></select>
+        <option value="">Select a Quadrant</option>
+        <option value="1">Urgent/Important</option>
+        <option value="2">Not Urgent/Important</option>
+        <option value="3">Urgent/Not Important</option>
+        <option value="4">Not Urgent/Not Important</option>
+    
+</form>
