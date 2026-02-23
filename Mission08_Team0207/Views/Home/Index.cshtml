@@ -1,8 +1,72 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model List<Task>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container mt-4">
+  <!-- Top Labels -->
+  <div class="row text-center">
+    <div class="col-2"></div>
+    <div class="col-5 border">Urgent</div>
+    <div class="col-5 border">Not Urgent</div>
+  </div>
+
+  <!-- Important Row -->
+  <div class="row text-center">
+    <div class="col-2 border d-flex align-items-center justify-content-center">
+      Important
+    </div>
+
+    <div class="col-5 border text-start">
+      <strong>Quadrant 1</strong>
+      @foreach (var x in Model.Where(t => t.Quadrant == 1))
+      {
+          <div>
+              @x.Task
+              <a asp-action="AddTask" asp-route-id="@x.TaskId">Update</a>
+              <a asp-action="Delete" asp-route-id="@x.TaskId">Delete</a>
+          </div>
+      }
+    </div>
+
+    <div class="col-5 border text-start">
+      <strong>Quadrant 2</strong>
+      @foreach (var x in Model.Where(t => t.Quadrant == 2))
+      {
+          <div>
+              @x.Task
+              <a asp-action="AddTask" asp-route-id="@x.TaskId">Update</a>
+              <a asp-action="Delete" asp-route-id="@x.TaskId">Delete</a>
+          </div>
+      }
+    </div>
+  </div>
+
+  <!-- Not Important Row -->
+  <div class="row text-center">
+    <div class="col-2 border d-flex align-items-center justify-content-center">
+      Not Important
+    </div>
+
+    <div class="col-5 border text-start">
+      <strong>Quadrant 3</strong>
+      @foreach (var x in Model.Where(t => t.Quadrant == 3))
+      {
+          <div>
+              @x.Task
+              <a asp-action="AddTask" asp-route-id="@x.TaskId">Update</a>
+              <a asp-action="Delete" asp-route-id="@x.TaskId">Delete</a>
+          </div>
+      }
+    </div>
+
+    <div class="col-5 border text-start">
+      <strong>Quadrant 4</strong>
+      @foreach (var x in Model.Where(t => t.Quadrant == 4))
+      {
+          <div>
+              @x.Task
+              <a asp-action="AddTask" asp-route-id="@x.TaskId">Update</a>
+              <a asp-action="Delete" asp-route-id="@x.TaskId">Delete</a>
+          </div>
+      }
+    </div>
+  </div>
 </div>
