@@ -46,10 +46,5 @@ public class HomeController : Controller
         
         return View(new TaskItem());
     }
-
-    public IActionResult AddTask()
-    {
-        return View();
-    }
     
 }
