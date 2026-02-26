@@ -1,19 +1,22 @@
-
+@model Mission08_Team0207.Models.TaskItem
 
 @{
 }
 
 
 <form method="post">
-    <label asp-for="Task">Task:</label>
-    <input asp-for="Task" type="text">
+
+    <input type="hidden" asp-for="TaskId">
+    
+    <label asp-for="TaskName">Task:</label>
+    <input asp-for="TaskName" type="text">
     <br>
     <label asp-for="DueDate">Due Date:</label>
     <input asp-for="DueDate" type="date">
     <br>
     <label asp-for="Quadrant">Quadrant:</label>
     <select asp-for="Quadrant">
-        <option value="">Select a Quadrant</option>
+        <option value="">-- Select a Quadrant --</option>
         <option value="1">Urgent/Important</option>
         <option value="2">Not Urgent/Important</option>
         <option value="3">Urgent/Not Important</option>
@@ -22,11 +25,11 @@
     <br>
     <label asp-for="Category">Category:</label>
     <select asp-for="Category">
-        <option value="">Select a Quadrant</option>
-        <option value="School">School</option>
-        <option value="Home">Home</option>
-        <option value="Work">Work</option>
-        <option value="Church">Church</option>
+        <option value="">-- Select a Category --</option>
+        @foreach (Category c in ViewBag.Categories)
+        {
+            <option value="@c.CategoryId">@c.CategoryName</option>
+        }
     </select>
     <br>
     <label asp-for="Completed">Completed:</label>
@@ -35,7 +38,7 @@
         <option value="true">Yes</option>
         <option value="false">No</option>
     </select>
-    
-    
-    <button class="btn btn-info" type="submit">Create Task</button>
+    <br>
+
+    <button class="btn btn-info" type="submit">Submit</button>
 </form>
