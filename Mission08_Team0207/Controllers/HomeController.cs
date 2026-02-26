@@ -46,5 +46,27 @@ public class HomeController : Controller
         
         return View(new TaskItem());
     }
+
+    [HttpPost]
+    public IActionResult AddTask(TaskItem task)
+    {
+        _repo.AddTask(task);
+        return RedirectToAction("Index");
+    }
+
+    [HttpGet]
+    public IActionResult Update(int id)
+    {
+        TaskItem task = _repo.GetTaskById(id);
+        ViewBag.Categories = _repo.GetCategories();
+        return View("AddTask", task);
+    }
+
+    [HttpPost]
+    public IActionResult Update(TaskItem task)
+    {
+        _repo.UpdateTask(task);
+        return RedirectToAction("Index");
+    }
     
 }
