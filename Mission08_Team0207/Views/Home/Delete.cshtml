@@ -1,8 +1,27 @@
 @model Mission08_Team0207.Models.TaskItem
-<h1>Confirm Deletion</h1>
-<h3>@Model.TaskName</h3>
-<form method="post">
-    <input type="hidden" asp-for="TaskId"></input>
-    <button type="submit" class="btn btn-danger">Delete</button>
-    <a class="btn btn-info" asp-controller="Home" asp-action="Index">Cancel</a>
-</form>
+
+<div class="container mt-4">
+
+    <div class="row text-center">
+        <div class="col-12 ">
+            <h1>Confirm Deletion</h1>
+        </div>
+    </div>
+
+    <div class="row text-center">
+        <div class="col-12 ">
+            <h3>@Model.TaskName</h3>
+        </div>
+    </div>
+
+    <div class="row text-center">
+        <div class="col-12 ">
+            <form method="post">
+                <input type="hidden" asp-for="TaskId" />
+                <button type="submit" class="btn btn-danger">Delete</button>
+                <a class="btn btn-info" asp-controller="Home" asp-action="Index">Cancel</a>
+            </form>
+        </div>
+    </div>
+
+</div>
